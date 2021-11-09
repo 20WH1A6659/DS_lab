@@ -1,5 +1,4 @@
 #include<stdio.h>
-//int binary_search(int,int[],int);
 int main(){
     int arr[10],k,n,i,result;
     printf("Enter no of elements:\n");
@@ -9,16 +8,15 @@ int main(){
           scanf("%d",&arr[i]);
     printf("Enter search elements:\n");
     scanf("%d",&k);
-    result = binary_search(arr,n,k);
+    result = binary_search(arr,n,k,0,n-1);
         if(result == -1)
             printf("Element not found in given array\n");
         else
            printf("Element found at %d position\n",result);
 
     }
-int binary_search(int arr[],int n,int k){
-        int low =0,mid;
-        int high = n-1;
+int binary_search(int arr[],int n,int k,int low,int high){
+        int mid;
         while(low<=high){
              mid = (low+high)/2;
             if(arr[mid] == k){
@@ -33,3 +31,28 @@ int binary_search(int arr[],int n,int k){
         }
         return -1;
 }
+\*Enter no of elements:
+5
+Enter sorted elements in array:
+47
+55
+63
+72
+81
+Enter search elements:
+81
+Element found at 5 position
+
+
+Enter no of elements:
+4
+Enter sorted elements in array:
+54
+87
+96
+25
+Enter search elements:
+55
+Element not found in given array*/
+
+
