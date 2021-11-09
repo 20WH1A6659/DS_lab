@@ -22,3 +22,26 @@ int linear_search(int arr[],int n,int k){
       }
       return -1;
 }
+/*Enter no of elements:
+5
+Enter array elements:
+1
+2
+3
+4
+5
+Enter key elements:
+3
+Element found at 3 position
+
+Enter no of elements:
+5
+Enter array elements:
+1
+2
+3
+4
+5
+Enter key elements:
+8
+Element not found in given array */
