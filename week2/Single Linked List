@@ -11,6 +11,7 @@ struct node *create(){
        scanf("%d",&n);
        while(n--)
           cur = (struct node*)malloc(sizeof(struct node));
+          printf("enter the value to be inserted in the node);
           scanf("%d",&(cur->data));
           cur->link = NULL;
           if(head == NULL)
@@ -58,7 +59,7 @@ struct node *insert_pos(int ele,int pos){
     void display(struct node *head){
     temp = head;
     while(temp!= NULL){
-        printf("%d",temp->data);
+        printf("%d->",temp->data);
         temp = temp->link;
     }
     printf("%d\n",(temp->data));
@@ -98,7 +99,7 @@ struct node *delete_pos(int pos){
 void reversedisplay(struct node *head){
     if(head!= NULL){
         reversedisplay(head->link);
-        printf("%d",head->data);
+        printf("%d->",head->data);
     }
 }
 int search(struct node*head,int key){
@@ -113,20 +114,25 @@ int search(struct node*head,int key){
     }
     return -1;
 }
-struct node*sorting(struct node*head)
-{
-    int x;
-    while(temp != NULL){
-        while(temp1 != NULL){
-            if(temp->data>temp1->data){
-                x = temp1->data;
-                temp->data =temp1->data;
-                temp1->data =x;
+struct node* sorting(struct node *head){
+    int x,i,s;
+    temp = head;
+    temp1 = NULL;
+    while(s){
+        s=0;
+        temp = head;
+        while(temp->link!=temp1){
+            if((temp->data) > (temp->link->data)){
+                x = temp->data;
+                temp->data = temp->link->data;
+                temp->link->data = x;
+                s = 1;
             }
-        temp1 =temp1->link;
+            temp = temp->link;
+        }
+        temp1 = temp;
     }
-    temp =temp->link;
-    }
+
     return head;
 }
 int main(){
@@ -138,18 +144,19 @@ while(1){
         switch(ch){
             case 1:head = create();
                    break;
-            case 2:printf("enter element:");
+            case 2:printf("enter the element to be inserted at the beginning:");
                    scanf("%d",&ele);
                    head =insert_begin(ele);
                    break;
-            case 3:scanf("%d",&ele);
+            case 3:printf("enter the element to be inserted at the end:");
+                   scanf("%d",&ele);
                    head =insert_end(ele);
                    break;
             case 4:printf("enter position:");
                    scanf("%d",&pos);
                    printf("enter element:");
                    scanf("%d",&ele);
-                   head =insert_pos(pos,ele);
+                   head =insert_pos(ele,pos);
                    break;
             case 5:head = delete_begin(head);
                    break;
@@ -177,3 +184,278 @@ while(1){
    }
 }
 }
+output:
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:1
+Enter no of nodes:4
+enter the value to be inserted in the node:10
+enter the value to be inserted in the node:12
+enter the value to be inserted in the node:13
+enter the value to be inserted in the node:14
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:8
+10->12->13->14
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:2
+enter element to be inserted at begining:9
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:8
+9->10->12->13->14
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:3
+enter the value to be inserted at end:15
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:8
+9->10->12->13->14->15
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:4
+enter position:3
+enter element to be inserted at given position:11
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:8
+9->10->11->12->13->14->15
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:5
+deleted element is 9
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:6
+deleted element is 15
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:7
+enter position:3
+deleted element is 12
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:8
+10->11->13->14
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:9
+14->13->11->10->
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:10
+enter key:11
+element found at 2
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:10
+enter key:13
+element found at 3
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:11
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:8
+10->11->12->14
+
+1-create
+2-insert_begin
+3-insert_end
+4-insert_pos
+5-delete_begin
+6-delete_end
+7-delete_pos
+8-display
+9-reversedisplay
+10-search
+11-sort
+12-exit
+enter your choice:12
+
+Process returned 0 (0x0)   execution time : 327.249 s
+Press any key to continue.
+
+
