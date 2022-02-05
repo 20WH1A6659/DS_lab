@@ -1,12 +1,5 @@
-// C program for insertion sort
-#include <math.h>
-#include <stdio.h>
-
-/* Function to sort an array using insertion sort*/
 // Insertion sort in C
-
 #include <stdio.h>
-
 // Function to print an array
 void printArray(int array[], int size) {
   for (int i = 0; i < size; i++) {
@@ -30,16 +23,22 @@ void insertionSort(int array[], int size) {
 
 
 int main() {
-  int data[] = {9, 5, 1, 4, 3};
-  int size = sizeof(data) / sizeof(data[0]);
+  int data[100],i,size;
+  printf("Enter size of the array:");
+  scanf("%d",&size);
+  printf("Enter array elements:");
+  for(i=0;i<size;i++)
+    scanf("%d",&data[i]);
   insertionSort(data, size);
   printf("Sorted array in ascending order:\n");
   printArray(data, size);
 }
-/* OUTPUT:
+/*OUTPUT:
+Enter size of the array:7
+Enter array elements:87 34 52 85 63 45 11
 Sorted array in ascending order:
-1 3 4 5 9
+11 34 45 52 63 85 87
 
-Process returned 0 (0x0)   execution time : 0.034 s
+Process returned 0 (0x0)   execution time : 19.020 s
 Press any key to continue.
 */
