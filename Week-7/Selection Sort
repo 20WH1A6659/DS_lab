@@ -5,16 +5,23 @@ void swap(int *x, int *y)
     *x = *y;
     *y = temp;
 }
-//A function to implement bubble sort
-void bubbleSort(int arr[], int n)
+//A function to implement selectionSort
+void selectionSort(int arr[], int n)
 {
-   int i, j;
-   for (i = 0; i < n-1; i++)
+    int i, j, min_index;
 
-       // Last i elements are already in place
-       for (j = 0; j < n-i-1; j++)
-           if (arr[j] > arr[j+1])
-              swap(&arr[j], &arr[j+1]);
+    // One by one move boundary of unsorted subarray
+    for (i = 0; i < n-1; i++)
+    {
+        // Find the minimum element in unsorted array
+        min_index = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_index])
+            min_index = j;
+
+        // Swap the found minimum element with the first element
+        swap(&arr[min_index], &arr[i]);
+    }
 }
 
 /* Function to print an array */
@@ -35,17 +42,16 @@ int main()
     printf("Enter array elements:");
     for(i=0;i<size;i++)
         scanf("%d",&arr[i]);
-    bubbleSort(arr, size);
+    selectionSort(arr, size);
     printf("Sorted array: \n");
     printArray(arr, size);
     return 0;
 }
-/*OUTPUT:
-Enter size of the array:4
-Enter array elements:98 25 14 75
-Sorted array:
-14 25 75 98
 
-Process returned 0 (0x0)   execution time : 15.760 s
-Press any key to continue. 
+/*
+OUTPUT:
+Enter size of the array:7
+Enter array elements:12 45 67 34 22 88 54
+Sorted array:
+12 22 34 45 54 67 88
 */
